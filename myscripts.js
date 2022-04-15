@@ -1,43 +1,45 @@
-function userPlay() {
-    let random = ["rock", "paper", "scissors"];
-return random[Math.floor(Math.random() * 3)];
-}
-function computerPlay() { //computer generates a random answer.
-let random = ["rock", "paper", "scissors"];
-return random[Math.floor(Math.random() * 3)];
+let result = '';
+let playerScore = 0;
+let computerScore = 0;
 
-}
-function playRound(playerSelection, computerSelection) { //plays a round of the game.
-if (playerSelection === "rock") {
-    if (computerSelection === "rock") {
-        return "Draw!";
-    } else if (computerSelection === "paper") {
-        return "Computer wins!";
-    } else {
-        return "User wins!";
-    }
-} else if (playerSelection === "paper") {
-    if (computerSelection === "rock") {
-        return "User wins!";
-    } else if (computerSelection === "paper") {
-        return "Draw!";
-    } else {
-        return "Computer wins!";
-    }
-} else {
-    if (computerSelection === "rock") {
-        return "Computer wins!";
-    } else if (computerSelection === "paper") {
-        return "User wins!";
-    } else {
-        return "Draw!";
-    }
-}
+function computerPlay() {
+    let random = ['rock', 'paper', 'scissor']
+     return random[Math.floor(Math.random() * 3)];
 }
 
-var userChoice = userPlay();
-var computerSelection = computerPlay();
-var result = playRound(userChoice, computerSelection)
-console.log("user's choice", userChoice);
-console.log("computer's choice", computerSelection);
-console.log("Result is", result);
+function playRound(playerSelection, computerSelection) {
+    if (playerSelection === computerSelection) {
+        result = "It's a draw!"
+    }
+    else if (playerSelection === 'rock') {
+        if (computerSelection === 'paper') {
+            result = 'You lose! Paper beats rock!'
+        }
+        else if (computerSelection === 'scissor') {
+            result = 'You win! Rock beats scissor!'
+        }
+    }
+    else if (playerSelection === 'paper') {
+        if (computerSelection === 'rock') {
+            result = 'You win! Paper beats rock!'
+        }
+        else if (computerSelection === 'scissor') {
+            result = 'You lose! Scissor beats paper!'
+        }
+    }
+    else if (playerSelection === 'scissor') {
+        if (computerSelection === 'rock') {
+            result = 'You lose! Rock beats scissor!'
+        }
+        else if (computerSelection === 'paper') {
+            result = 'You win! Scissor beats paper!'
+        }
+    }
+}
+
+const playerSelection = "rock";
+const computerSelection = computerPlay();
+console.log(playerSelection);
+console.log(computerSelection);
+console.log(playRound(playerSelection, computerSelection));
+console.log(result);
