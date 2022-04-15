@@ -4,6 +4,7 @@ let computerSelection = computerPlay();
 let playerSelection = prompt("Type rock, paper, or scissor");
 playerSelection = playerSelection.toLowerCase();
 
+// Function for random computer choice using an array
 function computerPlay() {
     let random = ['rock', 'paper', 'scissor']
      return random[Math.floor(Math.random() * 3)];
@@ -50,6 +51,7 @@ let round = 0;
 let playerScore = 0;
 let computerScore = 0;
 
+// Create a function that loops through the playRound function five times
 function game() {
     for (let i=0; i < 5; i++) {
         playRound(playerSelection, computerSelection) 
